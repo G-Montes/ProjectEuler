@@ -13,6 +13,7 @@
 //so that a future revision of this code would only need to change the implementation
 //for finding the least common multiple.
 
+//An implementation of euclid's algorithm
 function greatestCommDiv(a, b){
     let temp = 0
     while( b != 0){
@@ -22,16 +23,23 @@ function greatestCommDiv(a, b){
     }
     return a
 }
+//This implementation will only work with two values. For values greater than 2, 
+//the least common multiple could be found using prime factorization.
 function leastCommMult(a,b){
     let gcd = greatestCommDiv(a, b)
     return (a / gcd) * b
 }
+//This implementation finds the sum of the multiples under the limit (not inclusive)
+//for each number provided by the user and then summed together. This function
+//allows for any number of 'number' arguments.
 function sumUnder(limit, ...number){
     let sum = 0
     let multCountOfEachNo = []
     for(let x in number){
         let multipleCountUnderLimit = Math.floor(limit / number[x])
         if(limit % number[x] == 0){
+            //since the limit should not be included, any evenly divisible number
+            //should have one count taken away
             multCountOfEachNo.push(multipleCountUnderLimit - 1)
         }else{
             multCountOfEachNo.push(multipleCountUnderLimit)
@@ -41,6 +49,8 @@ function sumUnder(limit, ...number){
     }
     return sum
 }
+//The problem requires that all the multiples be summed. The method above though
+//summs all common multiples twice so we have to subtract those to remove dups
 function sumUnderWithoutDups(limit, ...number){
     let sumWithDups = sumUnder(limit, ...number)
     let lcm = leastCommMult(number[0], number[1])
