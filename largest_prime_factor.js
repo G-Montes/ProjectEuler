@@ -16,7 +16,15 @@
 //
 //There are two resolutions that I have in mind.
 //The more unlikely is to find a way to increase 
-//the memory limit on the heap
+//the memory limit on the heap which I tried with
+//no success. The other solution I have would be to
+//to break the prime search into sections and avoid
+//having the heap run out of memory. I will come back
+//and fix this issue so that it can run normally on
+//most computers, but since I spent a lot of time
+//researching this issue already, I feel it's best
+//to move on to the next problem and come back to this
+//when I have more free time.
 function findPrimesUpToN(limit){
     let numIsPrimeArr = []
     let primeNumsArr = []
