@@ -11,8 +11,27 @@
 //instead of generating the primes up to N, it
 //only does so for numbers < sqrt(n). I realized
 //that since we're finding the largest prime factor,
-//there wouldn't be a value greater than n/2. 
-// 
+//there wouldn't be a value greater than n/2.
+//The findLargestPrime function performs a prime 
+//factorization on the input number and then
+//returns the largest prime found.
+//
+//Some other improvemnets:
+//-removed some redundant code:
+//  -findLargestPrimeNum:
+//      -I realized that the code surrounding the for
+//       loop redoes what's done in the for loop so
+//       I deleted it.
+//  -findPrimesUpToN
+//      -the if else at the beginning didn't really
+//       do anything since the limit was sqrt(n)
+//      -also 2,3 was added at the beginning of the array
+//       at the end of the function. The array could be 
+//       declared with those values at the start.
+//
+//Although the function works for smaller values, the 
+//findPrimesUptoN should be refactored so that it prevents
+//unnecesarry calculations.
 function findPrimesUpToN(limit){
     let numIsPrimeArr = []
     let primeNumsArr = [2,3]
